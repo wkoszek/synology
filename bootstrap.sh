@@ -27,4 +27,9 @@ else
 	echo "Skipping!"
 fi
 
-# Install .profile will come here...
+P=`readlink ${HOME}/.profile`
+if [ "$P" = ".profile" ]; then
+	echo "# ${HOME}/.profile already installed! Will skip"
+else
+	echo mv ~/.profile ~/.profile.`date +'%Y%m%d-%s'` | tee - | sh
+fi
