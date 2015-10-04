@@ -12,6 +12,10 @@ things:
   backup solutions such as `zbackup`, which don't exist in `ipkg`
   repository.
 
+I stole some ideas from:
+
+http://www.hang321.net/en/2015/06/09/debian-chroot-on-dsm-5-2/
+
 # How to use
 
 
