@@ -2,6 +2,7 @@
 
 SYNO=syno-i686-bootstrap_1.2-7_i686.xsh
 URL=http://ipkg.nslu2-linux.org/feeds/optware/syno-i686/cross/unstable/${SYNO}
+R=/volume1/@appstore/debian-chroot/var/chroottarget/
 
 echo "# Running ipkg / Debian chroot bootstrap"
 
@@ -36,5 +37,23 @@ else
 		echo $CMD
 		sh -c "$CMD"
 	fi
+	echo "# Installing symlink from ~/.profile -> .profile"
 	ln -s `pwd`/.profile ${HOME}/.profile
 fi
+
+S=/var/packages/debian-chroot/scripts/start-stop-status
+echo "# will backup to ./ and replace $S with ./start-stop-status"
+cp $S start-stop-status.bak
+cp start-stop-status $S
+
+# Based on http://www.hang321.net/en/2015/06/09/debian-chroot-on-dsm-5-2/
+sed -i.`date +%Y%m%d` 's/fr.debian.org/us.debian.org/g' $R/etc/apt/sources.list
+cat > $R/setup.sh <<EOF
+apt-get update
+apt-get upgrade
+apt-get install locales
+dpkg-reconfigure locales
+dpkg-reconfigure tzdata
+apt-get install less vim curl rsync screen openssh-server bash-completion
+EOF
+chroot $R sh /setup.sh
