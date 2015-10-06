@@ -33,7 +33,7 @@ if [ "$P" = ".profile" ]; then
 	echo "# ${HOME}/.profile already installed! Will skip"
 else
 	if [ -f ~/.profile ]; then
-		CMD="mv ~/.profile ~/.profile.`date +'%Y%m%d-%s'`"
+		CMD="cp -H ~/.profile ~/.profile.`date +'%Y%m%d-%s'`"
 		echo $CMD
 		sh -c "$CMD"
 	fi
