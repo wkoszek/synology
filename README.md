@@ -42,7 +42,9 @@ Get the `wkoszek/synology` repo release:
 
 1. Visit https://github.com/wkoszek/synology/releases
 2. Pick the latest release
-3. Fetch and start it (example with 0.1.0 release)
+3. Fetch and start it
+
+Then (example with 0.1.0 release):
 
 	./wget2 https://github.com/wkoszek/synology/archive/0.1.0.zip
 	unzip 0.1.0.zip
