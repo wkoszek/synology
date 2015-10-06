@@ -66,7 +66,7 @@ apt-get install -y less vim curl rsync screen openssh-server bash-completion
 EOF
 chroot $R sh /setup.sh
 
-echo <<EOF
+cat<<EOF
 ---------------------- Synology bootstrap complete ------------------
 SSH keys are in: $HOME/keys/
 
