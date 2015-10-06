@@ -93,6 +93,10 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 git config --global push.default simple
 
+If you forked to myuser/synology, then take $HOME/keys/nas.pub and stick
+it in GitHub -> myuser/synology -> Settings -> Deploy keys. Mark the key
+read/write to be able to push to the repository.
+
 Enjoy! Comments and feedback: Wojciech A. Koszek, wojciech@koszek.com
 ---------------------------------------------------------------------
 EOF
