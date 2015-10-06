@@ -41,6 +41,13 @@ else
 	ln -s `pwd`/.profile ${HOME}/.profile
 fi
 
+if [ ! -d $HOME/keys ]; then
+	echo "# will generate SSH keys now in $HOME/keys"
+	ssh-keygen -f $HOME/keys/nas -b 4096 -t rsa
+else
+	echo "# $HOME/keys exists. Skipping SSH key generation!"
+fi
+
 S=/var/packages/debian-chroot/scripts/start-stop-status
 echo "# will backup to ./ and replace $S with ./start-stop-status"
 cp $S start-stop-status.bak
