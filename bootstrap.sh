@@ -42,7 +42,7 @@ else
 fi
 
 mkdir -p $HOME/keys
-if [ ! -d $HOME/keys/nas ]; then
+if [ ! -f $HOME/keys/nas ]; then
 	echo "# will generate SSH keys now in $HOME/keys"
 	ssh-keygen -f $HOME/keys/nas -b 4096 -t rsa
 else
