@@ -65,3 +65,19 @@ dpkg-reconfigure tzdata
 apt-get install -y less vim curl rsync screen openssh-server bash-completion
 EOF
 chroot $R sh /setup.sh
+
+echo <<EOF
+---------------------- Synology bootstrap complete ------------------
+SSH keys are in: $HOME/keys/
+
+I encourage you to fork and extend this repo. Before doing so, install
+and configure git:
+
+ipkg install git
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+git config --global push.default simple
+
+Enjoy! Comments and feedback: Wojciech A. Koszek, wojciech@koszek.com
+---------------------------------------------------------------------
+EOF
