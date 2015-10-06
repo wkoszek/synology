@@ -23,8 +23,8 @@ start_daemon ()
         grep -q "${CHROOTTARGET}/dev " /proc/mounts || mount -o bind /dev ${CHROOTTARGET}/dev
         grep -q "${CHROOTTARGET}/dev/pts " /proc/mounts || mount -o bind /dev/pts ${CHROOTTARGET}/dev/pts
         grep -q "${CHROOTTARGET}/home " `realpath /var/services/homes` || mount -o bind `realpath /var/services/homes` ${CHROOTTARGET}/home
-        grep -q "${CHROOTTARGET}/volumeUSB1/usbshare" /proc/mounts || mount -o bind /mnt/volumeUSB1 ${CHROOTTARGET}/mnt/volumeUSB1
-        grep -q "${CHROOTTARGET}/volumeUSB2/usbshare" /proc/mounts || mount -o bind /mnt/volumeUSB2 ${CHROOTTARGET}/mnt/volumeUSB2
+        grep -q "${CHROOTTARGET}/volumeUSB1/usbshare" /proc/mounts || mount -o bind /volumeUSB1/usrshare ${CHROOTTARGET}/mnt/volumeUSB1
+        grep -q "${CHROOTTARGET}/volumeUSB2/usbshare" /proc/mounts || mount -o bind /volumeUSB2/usbshare ${CHROOTTARGET}/mnt/volumeUSB2
 
         # Start all services
         ${INSTALL_DIR}/app/start.py
