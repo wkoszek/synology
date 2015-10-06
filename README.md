@@ -18,4 +18,50 @@ http://www.hang321.net/en/2015/06/09/debian-chroot-on-dsm-5-2/
 
 # How to use
 
+1. Enable SSH on your Synology http://forum.synology.com/wiki/index.php/Enabling_the_Command_Line_Interface
+2. Go to [https://synocommunity.com/](https://synocommunity.com/) and add
+the Community Packages to Synology software sources.
+3. From the community packages tab, install Python.
+4. From the community packages tab, install Debian chroot.
+5. Upon installing, start Debian chroot.
 
+SSH to your NAS:
+
+	ssh root@nas_ip
+
+Get the simple Python script which imitates `wget`, but unlike Synology's
+`wget(1)` has HTTPS support:
+
+	wget -O - 'http://pastebin.com/raw.php?i=PcbNtyh9' | tr 'r' ' ' >
+	wget2
+	chmod 755 wget2
+
+For more information, read http://www.koszek.com/blog/2015/10/04/wget-in-9-lines-of-python-for-hostile-environments/.
+
+Get the `wkoszek/synology` repo release:
+
+1. Visit https://github.com/wkoszek/synology/releases
+2. Pick the latest release
+3. Fetch and start it (example with 0.1.0 release)
+
+	./wget2 https://github.com/wkoszek/synology/archive/0.1.0.zip
+	unzip 0.1.0.zip
+	cd synology-0.1.0
+	./bootstrap.sh
+
+This should initiate the bootstrap procedure.
+
+# What bootstrap does for you
+
+Upon running `bootstrap.sh` following things will happen:
+
+1. `ipkg` will be fetched and installed.
+2. ASH config will be updated to add `ipkg` to `PATH`
+3. `.profile` will be updated with some usable aliases and mandatory settings
+4. SSH keys will be generated.
+5. SSH configuration will be installed for GitHub.com in case you want to push from your NAS
+6. Updated start script for Debian chroot will be installed. It basically
+mounts home directories in the chroot directory, and also adds USB-mounted
+volumes there.
+7. Debian's chroot environment will be started and updated.
+8. Informational message will be printed.
