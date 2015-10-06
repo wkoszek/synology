@@ -19,10 +19,15 @@ export PAGER
 
 PS1="`hostname`> "
 
+# ---------------------------------------------------------------------------
+
+export GIT_SSH='/usr/bin/ssh'
+export SYNOREL=https://github.com/wkoszek/synology/archive/
+
 alias dir="ls -al"
 alias ll="ls -la"
+alias la="ls -la"
 
 alias debian="/var/packages/debian-chroot/scripts/start-stop-status chroot"
 alias screen="env TERM=xterm screen"
-alias git='env GIT_SSH=/usr/bin/ssh git'
-export SYNOREL=https://github.com/wkoszek/synology/archive/
+alias wget="/root/synology/wget2"

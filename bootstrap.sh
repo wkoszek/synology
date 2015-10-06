@@ -33,7 +33,7 @@ if [ "$P" = ".profile" ]; then
 	echo "# ${HOME}/.profile already installed! Will skip"
 else
 	if [ -f ~/.profile ]; then
-		CMD="mv ~/.profile ~/.profile.`date +'%Y%m%d-%s'`"
+		CMD="cp -H ~/.profile ~/.profile.`date +'%Y%m%d-%s'`"
 		echo $CMD
 		sh -c "$CMD"
 	fi
@@ -42,11 +42,26 @@ else
 fi
 
 mkdir -p $HOME/keys
-if [ ! -d $HOME/keys/nas ]; then
+if [ ! -f $HOME/keys/nas ]; then
 	echo "# will generate SSH keys now in $HOME/keys"
 	ssh-keygen -f $HOME/keys/nas -b 4096 -t rsa
 else
 	echo "# $HOME/keys exists. Skipping SSH key generation!"
+fi
+
+echo "# About to enable proper GitHub configuration entry for SSH"
+mkdir -p ~/.ssh
+grep github.com ~/.ssh/config >/dev/null 2>/dev/null
+if [ $? -eq 0 ]; then
+	echo "# ...$HOME/config has github.com entry already. Skipping!"
+else
+	touch ~/.ssh/config
+	(
+		echo "Host github.com"
+		echo "	IdentityFile /root/keys/nas"
+		echo "	User	git"
+		echo "	HostName github.com"
+	) >> ~/.ssh/config
 fi
 
 S=/var/packages/debian-chroot/scripts/start-stop-status
@@ -65,3 +80,23 @@ dpkg-reconfigure tzdata
 apt-get install -y less vim curl rsync screen openssh-server bash-completion
 EOF
 chroot $R sh /setup.sh
+
+cat<<EOF
+---------------------- Synology bootstrap complete ------------------
+SSH keys are in: $HOME/keys/
+
+I encourage you to fork and extend this repo. Before doing so, install
+and configure git:
+
+ipkg install git
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+git config --global push.default simple
+
+If you forked to myuser/synology, then take $HOME/keys/nas.pub and stick
+it in GitHub -> myuser/synology -> Settings -> Deploy keys. Mark the key
+read/write to be able to push to the repository.
+
+Enjoy! Comments and feedback: Wojciech A. Koszek, wojciech@koszek.com
+---------------------------------------------------------------------
+EOF
