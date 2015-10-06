@@ -23,3 +23,4 @@ alias dir="ls -al"
 alias ll="ls -la"
 
 alias debian="/var/packages/debian-chroot/scripts/start-stop-status chroot"
+alias screen="env TERM=xterm screen"
