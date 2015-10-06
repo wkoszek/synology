@@ -49,6 +49,21 @@ else
 	echo "# $HOME/keys exists. Skipping SSH key generation!"
 fi
 
+echo "# About to enable proper GitHub configuration entry for SSH"
+mkdir -p ~/.ssh
+grep github.com ~/.ssh/config >/dev/null 2>/dev/null
+if [ $? -eq 0 ]; then
+	echo "# ...$HOME/config has github.com entry already. Skipping!"
+else
+	touch ~/.ssh/config
+	(
+		echo "Host github.com"
+		echo "	IdentityFile /root/keys/nas"
+		echo "	User	git"
+		echo "	HostName github.com"
+	) >> ~/.ssh/config
+fi
+
 S=/var/packages/debian-chroot/scripts/start-stop-status
 echo "# will backup to ./ and replace $S with ./start-stop-status"
 cp $S start-stop-status.bak
