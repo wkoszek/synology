@@ -67,3 +67,8 @@ mounts home directories in the chroot directory, and also adds USB-mounted
 volumes there.
 7. Debian's chroot environment will be started and updated.
 8. Informational message will be printed.
+
+# Author
+
+- Wojciech Adam Koszek, [wojciech@koszek.com](mailto:wojciech@koszek.com)
+- [http://www.koszek.com](http://www.koszek.com)
