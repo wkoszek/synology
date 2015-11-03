@@ -1,10 +1,6 @@
 # My Synology automation scripts
 **Making Synology NAS command line usable**
 
-<script type="text/javascript" src="https://raw.githubusercontent.com/wkoszek/test/master/addthis_widget.js#pubid=ra-4f9a67fb0188b069" async="async"></script>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_sharing_toolbox"></div>
-
 I have a Synology DS214play NAS box and its command line is pretty limited. Most of the
 commands are trimmed down copies of their UNIX counterparts. I like my NAS
 being NAS, but I also wanted to be able to do useful things with it, assuming
