@@ -1,7 +1,5 @@
 language: python
 python:
 - '2.7'
-- '3.3'
-- pypy
 script:
 - ./wget2 http://testdata.koszek.com/data/10.txt
