@@ -1,7 +1,8 @@
 # My Synology automation scripts
 
-I have a Synology box and to make its command line usable, one needs 2
-things:
+I have a Synology NAS box and to make its command line usable for myself
+long-term, I decided to spend some time on proper configuration. This
+includes:
 
 - `ipkg` installation: this will give you basic commands such as `vim` or
   `bash`
