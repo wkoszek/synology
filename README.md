@@ -1,13 +1,13 @@
 # My Synology automation scripts
 
 I have a Synology NAS box and to make its command line usable for myself
-long-term, I decided to spend some time on proper configuration. This
+in a long-term, I decided to spend some time on proper configuration. This
 includes:
 
 - `ipkg` installation: this will give you basic commands such as `vim` or
   `bash`
 
-- Debian chroot: this will let you run a Debian chroot, which gives you
+- Debian chroot: this will let you run a Debian userland, which gives you
   `apt-get` and the possibility of running all sorts of stuff on your
   Synology box. I found it useful when experimenting with command-line
   backup solutions such as `zbackup`, which don't exist in `ipkg`
@@ -20,8 +20,7 @@ http://www.hang321.net/en/2015/06/09/debian-chroot-on-dsm-5-2/
 # How to use
 
 1. Enable SSH on your Synology http://forum.synology.com/wiki/index.php/Enabling_the_Command_Line_Interface
-2. Go to [https://synocommunity.com/](https://synocommunity.com/) and add
-the Community Packages to Synology software sources.
+2. Go to [https://synocommunity.com/](https://synocommunity.com/) and add the Community Packages to Synology software sources.
 3. From the community packages tab, install Python.
 4. From the community packages tab, install Debian chroot.
 5. Upon installing, start Debian chroot.
