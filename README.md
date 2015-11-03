@@ -1,12 +1,13 @@
 # My Synology automation scripts
 **Making Synology NAS command line usable**
 
-I have a Synology NAS box and its command line is pretty limited. Most of the
+I have a Synology DS214play NAS box and its command line is pretty limited. Most of the
 commands are trimmed down copies of their UNIX counterparts. I like my NAS
 being NAS, but I also wanted to be able to do useful things with it, assuming
 it's powered 24/7. To make its command line usable for myself
-in a long-term, I decided to spend some time on proper configuration. This
-included:
+in a long-term, I decided to spend some time on proper configuration.
+Unfortunately my NAS model isn't permitted to use Synology's Docker package, so the whole
+activity included:
 
 - `ipkg` installation: this will give you basic commands such as `vim` or
   `bash`
