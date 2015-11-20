@@ -1,6 +1,8 @@
 # My Synology automation scripts
 **Making Synology NAS command line usable**
 
+[![Build Status](https://travis-ci.org/wkoszek/synology.svg?branch=master)](https://travis-ci.org/wkoszek/synology)
+
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f9a67fb0188b069" async="async"></script>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <div class="addthis_sharing_toolbox"></div>
