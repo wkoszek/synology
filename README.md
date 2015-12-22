@@ -1,5 +1,5 @@
-# My Synology automation scripts
-**Making Synology NAS command line usable**
+# Making Synology NAS command line usable
+**My Synology automation scripts**
 
 [![Build Status](https://travis-ci.org/wkoszek/synology.svg?branch=master)](https://travis-ci.org/wkoszek/synology)
 
