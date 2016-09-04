@@ -3,6 +3,8 @@
 
 [![Build Status](https://travis-ci.org/wkoszek/synology.svg?branch=master)](https://travis-ci.org/wkoszek/synology)
 
+**This project should be converted to Ansible. Any volunteers?**
+
 I have a Synology DS214play NAS box and its command line is pretty limited. Most of the
 commands are trimmed down copies of their UNIX counterparts. I like my NAS
 being NAS, but I also wanted to be able to do useful things with it, assuming
@@ -37,26 +39,17 @@ SSH to your NAS:
 	ssh root@nas_ip
 
 Get the simple Python script which imitates `wget`, but unlike Synology's
-`wget(1)` has HTTPS support:
+`wget(1)` has HTTPS support (http://www.koszek.com/blog/2015/10/04/wget-in-9-lines-of-python-for-hostile-environments/):
 
 	wget -O - 'http://pastebin.com/raw.php?i=PcbNtyh9' | tr '\r' ' ' > wget2
 	chmod 755 wget2
-
-For more information, read http://www.koszek.com/blog/2015/10/04/wget-in-9-lines-of-python-for-hostile-environments/.
-
-Get the `wkoszek/synology` repo release:
-
-1. Visit https://github.com/wkoszek/synology/releases
-2. Pick the latest release
-3. Fetch and start it
-
-Then (example with 0.1.1 release):
-
 	./wget2 https://github.com/wkoszek/synology/archive/0.1.1.tar.gz
 	gunzip 0.1.1.tar.gz
 	tar xf 0.1.1.tar
 	cd synology-0.1.1
 	./bootstrap.sh
+
+(you may want to pick the latest `synology-x.x.x` release).
 
 This should initiate the bootstrap procedure.
 
