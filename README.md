@@ -39,8 +39,7 @@ SSH to your NAS:
 Get the simple Python script which imitates `wget`, but unlike Synology's
 `wget(1)` has HTTPS support:
 
-	wget -O - 'http://pastebin.com/raw.php?i=PcbNtyh9' | tr 'r' ' ' >
-	wget2
+	wget -O - 'http://pastebin.com/raw.php?i=PcbNtyh9' | tr '\r' ' ' > wget2
 	chmod 755 wget2
 
 For more information, read http://www.koszek.com/blog/2015/10/04/wget-in-9-lines-of-python-for-hostile-environments/.
@@ -51,11 +50,11 @@ Get the `wkoszek/synology` repo release:
 2. Pick the latest release
 3. Fetch and start it
 
-Then (example with 0.1.0 release):
+Then (example with 0.1.1 release):
 
-	./wget2 https://github.com/wkoszek/synology/archive/0.1.0.zip
-	unzip 0.1.0.zip
-	cd synology-0.1.0
+	./wget2 https://github.com/wkoszek/synology/archive/0.1.1.zip
+	unzip 0.1.1.zip
+	cd synology-0.1.1
 	./bootstrap.sh
 
 This should initiate the bootstrap procedure.
