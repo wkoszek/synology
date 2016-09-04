@@ -52,8 +52,9 @@ Get the `wkoszek/synology` repo release:
 
 Then (example with 0.1.1 release):
 
-	./wget2 https://github.com/wkoszek/synology/archive/0.1.1.zip
-	unzip 0.1.1.zip
+	./wget2 https://github.com/wkoszek/synology/archive/0.1.1.tar.gz
+	gunzip 0.1.1.tar.gz
+	tar xf 0.1.1.tar
 	cd synology-0.1.1
 	./bootstrap.sh
 
